@@ -3,7 +3,11 @@ class RequestsController < ApplicationController
   before_action :find_request, except: %i(new create index)
 
   def index
-    @requests = Request.order(id: :desc).page(params[:page]).per Settings.pagination.user_page
+    if current_user.manager?
+      get_list_request
+    else
+      get_user_request
+    end
     @page = params[:page].nil? ? Settings.pagination.default_page : params[:page].to_i
   end
 
@@ -73,8 +77,13 @@ class RequestsController < ApplicationController
   end
 
   def update_if_deny
-    @request.update!(status: Settings.request.status.denied,
-        approver: current_user.name, deny_reason: params[:deny_reason])
+    @check = Request.update @request.id, status: Settings.request.status.denied,
+      approver: current_user.name, deny_reason: params[:deny_reason]
+    if @check.save
+      flash[:success] = t "requests.index.deny_success"
+    else
+      flash[:error] = t "requests.index.deny_fail"
+    end
   end
 
   def manager_update
@@ -83,7 +92,6 @@ class RequestsController < ApplicationController
       flash[:success] = t "requests.index.accept_success"
     else
       update_if_deny
-      flash[:success] = t "requests.index.deny_success"
     end
     redirect_to @request
   end
@@ -96,5 +104,13 @@ class RequestsController < ApplicationController
       flash[:error] = t "requests.edit.edit_fail"
       render :edit
     end
+  end
+
+  def get_user_request
+    @requests = Request.get_request(current_user.id).order(id: :desc).page(params[:page]).per Settings.user_page
+  end
+
+  def get_list_request
+    @requests = Request.order(id: :desc).page(params[:page]).per Settings.user_page
   end
 end

@@ -57,6 +57,7 @@ vi:
   requests:
     index:
       title: Danh sách yêu cầu
+      user_title: Danh sách yêu cầu của tôi
       requester: Người yêu cầu
       plane_code: Mã máy bay
       location: Ô thứ

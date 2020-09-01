@@ -57,6 +57,7 @@ en:
   requests:
     index:
       title: Requests List
+      user_title: My Requests
       requester: Requester
       plane_code: Plane's Code
       location: Location
