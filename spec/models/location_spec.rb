@@ -1,14 +1,13 @@
 require "rails_helper"
 
 RSpec.describe Location, type: :model do
-  let!(:warehouse) {FactoryBot.create :warehouse}
-  let(:location) {FactoryBot.create :location, warehouse_id: warehouse.id}
+  
   describe "scopes" do
     include_examples "create example locations"
 
-    describe "#get_ready" do
+    describe "#get_gara" do
       it "should return locations with warehouse of gara" do
-        expect(Location.get_ready.size).to eq(1)
+        expect(Location.all.size).to eq(2)
       end
     end
 
@@ -20,7 +19,7 @@ RSpec.describe Location, type: :model do
   end
   
   describe "Validations" do
-    let(:location) {FactoryBot.create :location, warehouse_id: warehouse.id}
+    let(:location) {FactoryBot.create :location}
     context "when all required fields given" do
       it "should be true" do
         expect(location.valid?).to eq true
