@@ -19,7 +19,7 @@ class Request < ApplicationRecord
     allow_nil: true
   validates :reason, presence: true,
     length: {maximum: Settings.reason.max_length}
-  validates :reason, presence: true, if: :denied?
+  validates :deny_reason, presence: true, if: :denied?
 
   delegate :code, to: :plane, prefix: true, allow_nil: true
   delegate :name, to: :user, prefix: true, allow_nil: true

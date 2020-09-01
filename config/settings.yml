@@ -55,3 +55,20 @@ request:
   status:
     accepted: "accepted"
     denied: "denied"
+rspec:
+  planes:
+   code: "A101"
+   status: "ready"
+  requests:
+    reason: "reason to request"
+  units:
+    name: "WM"
+    description: "Warehouse Management"
+  users:
+    email: "default@gmail.com"
+    password: "123456"
+    password_confirmation: "123456"
+  warehouses:
+    name: "Khu sửa chữa"
+    area: "3 km2"
+    amount: 100
