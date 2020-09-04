@@ -24,6 +24,8 @@ class Request < ApplicationRecord
   delegate :code, to: :plane, prefix: true, allow_nil: true
   delegate :name, to: :user, prefix: true, allow_nil: true
 
+  scope :get_request, ->(idu){where user_id: idu}
+
   def update_value? request, current_user
     @plane = Plane.find_by id: request.plane_id
     @old_location = Location.find_by id: @plane.requests.accepted.last.location_id
