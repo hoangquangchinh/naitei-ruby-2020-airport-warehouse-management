@@ -3,6 +3,22 @@
   <div id="success">
     <%= render :partial => "shared/flash_toastr" , :locals => { :flash => flash } %>
   </div>
+<div class="card-header">
+<div class="card-tools">
+  <%= search_form_for @q, class: "input-group input-group-sm flex-form" do |f| %>
+    <%= f.label :admin %>
+    <%= f.radio_button :admin_true, Settings.user.exactly %>
+    <%= f.label :manager %>
+    <%= f.radio_button :manager_true, Settings.user.exactly %>
+    <%= f.label :employee %>
+    <%= f.radio_button :admin_and_manager_false, Settings.user.exactly %>
+    <%= f.text_field :name_cont, class: "form-control search-field float-right", placeholder: t(".search") %> &nbsp;
+    <%= f.button :submit, class: "btn btn-sm btn-primary input-group-append" do %>
+    <i class="fas fa-search"></i>
+    <% end %>
+  <% end %>
+</div>
+</div>
 <table class="table table-hover">
   <thead>
     <tr>

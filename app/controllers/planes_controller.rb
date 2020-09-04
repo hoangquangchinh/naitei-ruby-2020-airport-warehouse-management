@@ -1,5 +1,6 @@
 class PlanesController < ApplicationController
   def index
-    @planes = Plane.page(params[:page]).per Settings.pagination.user_page
+    @q = Plane.ransack params[:q]
+    @planes = @q.result.page(params[:page]).per params[:limit]
   end
 end

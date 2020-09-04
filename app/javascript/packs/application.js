@@ -18,6 +18,11 @@ window.toastr = toastr
 $(document).ready(function(){
   $('[data-toggle="tooltip"]').tooltip();
 });
+$(function(){
+  $("#show-limit").on("change", function(){
+    $(this).closest("form").trigger("submit");
+  });
+})
 
 //= require jquery
 //= require jquery_ujs

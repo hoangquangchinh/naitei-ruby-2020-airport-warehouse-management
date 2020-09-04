@@ -22,6 +22,7 @@ gem "figaro"
 gem "jquery-rails", "4.3.1"
 gem "kaminari", "~> 1.2.1"
 gem "rails-i18n"
+gem "ransack"
 gem "toastr-rails"
 
 group :development, :test do

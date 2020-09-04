@@ -1,12 +1,23 @@
 <% provide :title, t(".title") %>
 <h1><%= t ".title"%></h1>
-<form remote:true>
+
+<form remote:true class="col-sm-6">
   <select id="select" class="custom-select" style="max-width: 100px; min-height: 30px">
     <option id="select1" value="1" selected><%= t ".all" %></option>
     <option id="select2" value="2" ><%= t ".repair_area" %></option>
     <option id="select3" value="3" ><%= t ".ready_area" %></option>
   </select>
 </form>
+<div class="card-header col-sm-6">
+  <div class="card-tools ">
+    <%= search_form_for @q, class: "input-group input-group-sm location-form" do |f| %>
+      <%= f.text_field :id_eq, class: "form-control float-right", placeholder: t(".search") %> &nbsp;
+      <%= f.button :submit, class: "btn btn-sm btn-primary input-group-append" do %>
+        <i class="fas fa-search"></i>
+      <% end %>
+    <% end %>
+  </div>
+</div>
 <script>
   $("#select").change(function(){
     $(".table-content").remove()
@@ -19,6 +30,7 @@
     }
   })
 </script>
+
 <% doc = @locations %>
 <section class="section-location">
   <div class="table-header"></div>

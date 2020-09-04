@@ -4,7 +4,8 @@ class UsersController < ApplicationController
   before_action :find_user, only: :show
 
   def index
-    @users = User.page(params[:page]).per Settings.pagination.user_page
+    @q = User.ransack params[:q]
+    @users = @q.result.page(params[:page]).per Settings.pagination.user_page
     @page = params[:page].nil? ? Settings.pagination.default_page : params[:page].to_i
   end
 
