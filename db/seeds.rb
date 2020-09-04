@@ -57,6 +57,7 @@ locations = Location.all
       reason: "Repaired",
       accept: true,
       processing: false,
+      status: "accepted",
       user_id: 2
     )
     plane.update_column :status, "ready"
