@@ -34,7 +34,7 @@
   <tbody>
     <tr>
       <td class ="request_index"><%= index + 1 + (@page - 1)*Settings.pagination.user_page %></td>
-      <td><%= link_to request.plane_code, "#" %></td>
+      <td><%= link_to request.plane_code, request.plane %></td>
       <td><%= request.location_id %></td>
       <td><%= request.user_name %></td>
       <td>

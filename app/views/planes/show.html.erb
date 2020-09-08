@@ -1,0 +1,62 @@
+<% provide :title, t(".title") %>
+<div>
+  <h1><%= t ".plane" %> <%= @plane.code %> </h1>
+</div>
+<div class="card-header">
+  <div class="card-tools">
+    <%= search_form_for @q, url: {action: :show, controller: :planes}, class: "input-group input-group-sm plane-form" do |f| %>
+      <%= f.text_field :location_id_or_id_or_updated_at_eq, class: "form-control float-right", placeholder: t(".search") %> &nbsp;
+      <%= f.button :submit, class: "btn btn-sm btn-primary input-group-append" do %>
+        <i class="fas fa-search"></i>
+      <% end %>
+    <% end %>
+  </div>
+</div>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col"><%= t ".stt" %></th>
+      <th scope="col"><%= t ".warehouse" %></th>
+      <th scope="col"><%= t ".location" %></th>
+      <th scope="col"><%= t ".time" %></th>
+      <th scope="col"><%= t ".status" %></th>
+      <th scope="col"><%= t ".requester" %></th>
+      <th scope="col"><%= t ".action" %></th>
+    </tr>
+  </thead>
+  <% @plane_requests.each_with_index do |plane_request, index| %>
+  <tbody>
+    <tr>
+      <td class ="request_index"><%= index + 1 + (@page - 1)*Settings.pagination.user_page %></td>
+      <td><%= plane_request.location.warehouse_name %></td>
+      <td><%= plane_request.location_id %></td>
+      <td><%= plane_request.updated_at.strftime("%I:%M %p  %m/%d/%Y") %></td>
+      <td>
+        <% if plane_request.process? %>
+          <%= link_to plane_request do %>
+            <span class="label label-info fa-1x"><%= t ".processing" %></span>
+          <% end %>
+        <% else %>
+          <% if plane_request.accepted? %>
+            <%= link_to plane_request do %>
+              <span class="label label-success fa-1x"><%= t ".accepted" %></span>
+            <% end %>
+          <% else %>
+            <%= link_to plane_request do %>
+              <span class="label label-default fa-1x"><%= t ".rejected" %></span>
+            <% end %>
+          <% end %>
+        <% end %>
+      </td>
+      <td><%= plane_request.user_name %></td>
+      <td>
+        <%= link_to plane_request do %>
+          <button type="button" class="btn btn-primary btn-sm" ><i class="fa fa-eye"></i></button>
+        <% end %>
+      </td>
+    </tr>
+    </tr>
+  </tbody>
+  <% end %>
+</table>
+<%= paginate @plane_requests, theme: "twitter-bootstrap-4" %>

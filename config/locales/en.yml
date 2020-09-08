@@ -62,6 +62,19 @@ en:
       delete_success: Delete request successfully!
       delete_failed: Delete request failed!
       search: Search
+    show:
+      title: Show plane
+      plane: Plane's code
+      warehouse: Warehouse
+      location: location
+      time: time
+      status: status
+      requester: requester
+      action: action
+      processing: processing
+      accepted: accepted
+      rejected: rejected
+      search: search
   requests:
     index:
       search: Search

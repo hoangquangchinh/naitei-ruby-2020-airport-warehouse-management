@@ -1,7 +1,9 @@
 <tbody>
   <tr>
-    <td><%= plane.id %></td>
-    <td><%= link_to plane.code, "#" %></td>
+    <td>
+      <%= link_to plane.id, plane %>
+    </td>
+    <td><%= link_to plane.code, plane %></td>
     <td><%= plane.status %></td>
     <td><%= t ".number" %> <%= plane.requests.accepted.last.location_id %></td>
     <td>
