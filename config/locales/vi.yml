@@ -54,6 +54,19 @@ vi:
       edit_success: Sửa yêu cầu thành công
       delete_success: Xóa yêu cầu thành công!
       delete_failed: Xóa yêu cầu thất bại!
+    show:
+      title: Xem máy bay
+      plane: Máy bay mã
+      warehouse: Khu
+      location: Ô
+      time: Thời gian
+      status: Trạng thái
+      requester: Người yêu cầu
+      action: Hành động
+      processing: Đang xử lý
+      accepted: Đã được đồng ý
+      rejected: Đã bị từ chối
+      search: tìm kiếm
   requests:
     index:
       title: Danh sách yêu cầu
