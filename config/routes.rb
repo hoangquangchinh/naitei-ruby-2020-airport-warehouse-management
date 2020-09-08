@@ -15,4 +15,6 @@ Rails.application.routes.draw do
     resources :locations, only: :index
     resources :planes, only: :index
   end
+
+  mount Base => '/'
 end

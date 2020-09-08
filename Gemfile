@@ -4,6 +4,9 @@ git_source(:github){|repo| "https://github.com/#{repo}.git"}
 gem "bcrypt"
 gem "faker", "2.1.2"
 gem "font-awesome-sass"
+gem "grape"
+gem "grape-entity"
+gem "grape_on_rails_routes"
 gem "jbuilder", "~> 2.7"
 gem "mysql2", ">= 0.4.4"
 gem "puma", "~> 4.1"
@@ -26,6 +29,7 @@ gem "ransack"
 gem "toastr-rails"
 
 group :development, :test do
+  gem "airborne"
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]
   gem "factory_bot_rails"
   gem "pry-rails"
