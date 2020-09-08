@@ -3,3 +3,35 @@
     font-size: 24px;
   }
 }
+
+.flex-form{
+  display: flex !important;
+  float: right;
+  width: 50%;
+  padding-bottom: 40px;
+}
+
+.search-field{
+  min-width: 150px
+}
+
+.request-form{
+  display: flex !important;
+  float: right;
+  width: 20%;
+  padding-bottom: 40px;
+}
+
+.plane-form{
+  display: flex !important;
+  float: right;
+  width: 20%;
+  padding-bottom: 40px;
+}
+
+.location-form{
+  display: flex !important;
+  float: right;
+  width: 40%;
+  padding-bottom: 40px;
+}

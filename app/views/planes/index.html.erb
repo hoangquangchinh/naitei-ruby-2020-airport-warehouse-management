@@ -1,5 +1,16 @@
 <% provide :title, t(".title") %>
 <h1><%= t ".title" %></h1>
+
+<div class="card-header">
+  <div class="card-tools">
+    <%= search_form_for @q, class: "input-group input-group-sm plane-form" do |f| %>
+      <%= f.text_field :code_or_id_or__cont, class: "form-control float-right", placeholder: t(".search") %> &nbsp;
+      <%= f.button :submit, class: "btn btn-sm btn-primary input-group-append" do %>
+        <i class="fas fa-search"></i>
+      <% end %>
+    <% end %>
+  </div>
+</div>
 <table class="table table-hover">
   <thead>
     <tr>

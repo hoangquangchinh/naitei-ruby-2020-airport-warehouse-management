@@ -107,10 +107,12 @@ class RequestsController < ApplicationController
   end
 
   def get_user_request
-    @requests = Request.get_request(current_user.id).order(id: :desc).page(params[:page]).per Settings.user_page
+    @q = Request.ransack params[:q]
+    @requests = @q.result.get_request(current_user.id).order(id: :desc).page(params[:page]).per Settings.user_page
   end
 
   def get_list_request
-    @requests = Request.order(id: :desc).page(params[:page]).per Settings.user_page
+    @q = Request.ransack params[:q]
+    @requests = @q.result.order(id: :desc).page(params[:page]).per Settings.user_page
   end
 end

@@ -5,7 +5,15 @@
   <% provide :title, t(".user_title") %>
   <h1><%= t ".user_title" %></h1>
 <% end %>
-
+<div class="card-header">
+<div class="card-tools">
+  <%= search_form_for @q, class: "input-group input-group-sm request-form" do |f| %>
+    <%= f.text_field :plane_code_cont, class: "form-control float-right", placeholder: t(".search") %> &nbsp;
+    <%= f.button :submit, class: "btn btn-sm btn-primary input-group-append" do %>
+      <i class="fas fa-search"></i>
+    <% end %>
+  <% end %>
+</div>
 <table class="table table-hover" id="table-request">
   <div class="create-request">
     <%= link_to new_request_path locale do %>
