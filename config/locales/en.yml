@@ -155,6 +155,11 @@ en:
       not_found_request: request not found
   users:
     sign_in: Sign In
+    edit:
+      edit_title: Edit profile
+      heading: Change Profile
+      edit_create: Change
+      change_link: Link Change
     new:
       title: Sign Up
       content: This will be a signup page for new users.
@@ -187,6 +192,9 @@ en:
     table:
       you_sure: You sure?
       delete: Delete
+    update:
+      success_mess_update: Change successfully!
+      fail_mess_update: Change failed!
   shared:
     error_messages:
       alert: Have
