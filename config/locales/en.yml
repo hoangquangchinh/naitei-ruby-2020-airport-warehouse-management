@@ -62,6 +62,9 @@ en:
       delete_success: Delete request successfully!
       delete_failed: Delete request failed!
       search: Search
+      create_plane: create plane
+      add_success: add success
+      add_fail: add fail
     show:
       title: Show plane
       plane: Plane's code
@@ -74,7 +77,22 @@ en:
       processing: processing
       accepted: accepted
       rejected: rejected
-      search: search
+    search: search
+    new:
+      plane_form: Create plane
+      code: Code
+      status: Status
+      num_of_seats: Number of seats
+      manufacturer: Manufacturer
+      flights: Flights
+      btn_add: Add Flight
+      create: Create
+      description: Description
+    flight_fields:
+      title: Title
+      from: From
+      to: To
+      status: Status
   requests:
     index:
       search: Search

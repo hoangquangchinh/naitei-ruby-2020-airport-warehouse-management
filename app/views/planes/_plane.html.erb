@@ -5,23 +5,32 @@
     </td>
     <td><%= link_to plane.code, plane %></td>
     <td><%= plane.status %></td>
-    <td><%= t ".number" %> <%= plane.requests.accepted.last.location_id %></td>
-    <td>
-      <% if plane.requests.last.process? %>
-        <%= link_to plane.requests.last do %>
-          <span class="label label-primary"><%=t ".processing" %></span>
-        <% end %>
+    <% if plane.requests.count > Settings.validation.id %>
+      <% if plane.requests.accepted.count > Settings.validation.id %>
+        <td><%= t ".number" %> <%= plane.requests.accepted.last.location_id %></td>
       <% else %>
-        <% if plane.ready? %>
-          <%= link_to new_request_path locale, plane_id: plane.id, status: plane.status do %>
-            <span class="label label-default" data-toggle="tooltip" data-placement="right" title = <%= t ".click_create_request" %>><%= t ".no_request" %></span>
+        <td></td>
+      <% end %>
+      <td>
+        <% if plane.requests.last.process? %>
+          <%= link_to plane.requests.last do %>
+            <span class="label label-primary"><%=t ".processing" %></span>
           <% end %>
         <% else %>
-          <%= link_to new_request_path locale, plane_id: plane.id, status: plane.status do %>
-            <span class="label label-default" data-toggle="tooltip" data-placement="right" title = <%= t ".click_create_request" %>><%= t ".no_request" %></span>
+          <% if plane.ready? %>
+            <%= link_to new_request_path locale, plane_id: plane.id, status: plane.status do %>
+              <span class="label label-default" data-toggle="tooltip" data-placement="right" title = <%= t ".click_create_request" %>><%= t ".no_request" %></span>
+            <% end %>
+          <% else %>
+            <%= link_to new_request_path locale, plane_id: plane.id, status: plane.status do %>
+              <span class="label label-default" data-toggle="tooltip" data-placement="right" title = <%= t ".click_create_request" %>><%= t ".no_request" %></span>
+            <% end %>
           <% end %>
         <% end %>
-      <% end %>
-    </td>
+      </td>
+    <% else %>
+      <td></td>
+      <td></td>
+    <% end %>
   </tr>
 </tbody>

@@ -13,7 +13,7 @@ Rails.application.routes.draw do
     resources :users
     resources :requests
     resources :locations, only: :index
-    resources :planes, only: %i(index show)
+    resources :planes, except: %i(edit update destroy)
   end
 
   mount Base => '/'
