@@ -11,7 +11,14 @@
     <% end %>
   </div>
 </div>
-<table class="table table-hover">
+<table class="table table-hover" id="table-request">
+  <% if current_user.admin? %>
+    <div class="create-request">
+      <%= link_to new_plane_path locale do %>
+        <button type="button" class="btn float-right btn-primary my-hover" data-toggle="tooltip" data-placement="right" title=<%= t ".create_plane" %> ><i class="fa fa-plus"></i></button>
+      <% end %>
+    </div>
+  <% end %>
   <thead>
     <tr>
       <th scope="col"><%= t ".order_id" %></th>

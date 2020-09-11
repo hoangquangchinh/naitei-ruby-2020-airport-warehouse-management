@@ -10,13 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_28_065602) do
+ActiveRecord::Schema.define(version: 2020_09_10_012128) do
 
   create_table "components", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
     t.bigint "amount"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "flights", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.datetime "time"
+    t.string "status"
+    t.string "title"
+    t.string "from"
+    t.string "to"
+    t.bigint "plane_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["plane_id"], name: "index_flights_on_plane_id"
   end
 
   create_table "histories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -100,6 +112,7 @@ ActiveRecord::Schema.define(version: 2020_08_28_065602) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "flights", "planes"
   add_foreign_key "histories", "components"
   add_foreign_key "histories", "requests", column: "schedule_id"
   add_foreign_key "locations", "warehouses"

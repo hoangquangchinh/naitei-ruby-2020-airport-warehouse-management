@@ -2,6 +2,7 @@ source "https://rubygems.org"
 git_source(:github){|repo| "https://github.com/#{repo}.git"}
 
 gem "bcrypt"
+gem "cocoon"
 gem "faker", "2.1.2"
 gem "font-awesome-sass"
 gem "grape"

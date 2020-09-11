@@ -1,0 +1,35 @@
+<div class="flight-form">
+  <div class="nested-fields">
+    <div class="col-sm-3">
+        <div class="form-group">
+          <%= f.label :title, t(".title"), class: "d_label my-require" %>
+          <%= f.text_field :title, class: "form-control" %>
+        </div>
+    </div>
+    <div class="col-sm-3">
+        <div class="form-group">
+          <%= f.label :from, t(".from"), class: "d_label my-require" %>
+          <%= f.text_field :from, class: "form-control" %>
+        </div>
+    </div>
+    <div class="col-sm-3">
+        <div class="form-group">
+          <%= f.label :to, t(".to"), class: "d_label my-require" %>
+          <%= f.text_field :to, class: "form-control" %>
+        </div>
+    </div>
+    <div class="col-sm-2">
+        <div class="form-group">
+          <%= f.label :status, t(".status"), class: "d_label my-require" %>
+          <%= f.text_field :status, class: "form-control" %>
+        </div>
+    </div>
+    <div class="col-sm-1 del-col">
+        <% if f.index != 0 %>
+            <%= link_to_remove_association f, class: "btn btn-danger" do %>
+              <i class="fas fa-times"></i>
+            <% end %>
+        <% end %>
+    </div>
+  </div>
+</div>

@@ -8,6 +8,7 @@ links:
   rails_home_page_link: "https://rubyonrails.org/"
   michaelhartl: "https://www.michaelhartl.com/"
   rails_new: "https://news.railstutorial.org/"
+  plane_img: "https://media.apnarm.net.au/media/images/2019/04/09/b881892094z1_20190409152534_000g0m1fv54q2-0-jxtklls9fb0od5up3s2_t1880.jpg"
 image:
   rails:
     width: "200px"
@@ -17,7 +18,6 @@ user:
   email_regex: !ruby/regexp /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   password_minimum: 6
   exactly: 1
-
 avatar_size : 80
 boolean:
   true: 1
@@ -39,6 +39,7 @@ plane:
   status:
     ready: "ready"
     gara: "in gara"
+    flying: flying
     gara_: "gara"
 warehouse:
   gara: 1

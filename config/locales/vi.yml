@@ -54,6 +54,9 @@ vi:
       edit_success: Sửa yêu cầu thành công
       delete_success: Xóa yêu cầu thành công!
       delete_failed: Xóa yêu cầu thất bại!
+      create_plane: Thêm máy bay
+      add_success: thêm thành công
+      add_fail: thêm thất bại
     show:
       title: Xem máy bay
       plane: Máy bay mã
@@ -67,6 +70,21 @@ vi:
       accepted: Đã được đồng ý
       rejected: Đã bị từ chối
       search: tìm kiếm
+    new: 
+      plane_form: Tạo máy bay
+      code: Mã
+      status: Trạng thái
+      num_of_seats: Số lượng chỗ ngồi
+      manufacturer: Hãng máy bay
+      flights: Chuyến bay
+      btn_add: Thêm
+      create: Tạo
+      description: Mô tả
+    flight_fields:
+      title: Tên chuyến bay
+      from: Từ
+      to: Đến
+      status: Trạng thái
   requests:
     index:
       title: Danh sách yêu cầu
